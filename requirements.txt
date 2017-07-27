@@ -1,0 +1,4 @@
+cloud4rpi
+pep8
+pylint
+pyfakefs
