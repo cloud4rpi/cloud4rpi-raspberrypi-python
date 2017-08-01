@@ -10,7 +10,14 @@
 # - Monitoring temperature with the DS18B20 sensor
 # 
 # For complete instructions on how to run this example, refer to the [How To](https://cloud4rpi.github.io/docs/howto/) article.
-
+#
+# The DS18B20 sensor should be connected as follows:
+#
+#  / GND |────────────> GND
+# | DATA |─────────┬──> GPIO4
+#  \ VCC |─┬─[4k7]─┘
+#          └──────────> 5V
+#  DS18B20 (bottom view)
 
 from os import uname
 from socket import gethostname
