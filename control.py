@@ -2,14 +2,16 @@
 #
 # Cloud4RPi Example for Raspberry Pi
 # ==================================
-# 
-# This example demonstrates different scenarios of using Cloud4RPi service on Raspberry Pi:
-# 
+#
+# This example demonstrates different scenarios of using Cloud4RPi service 
+# on Raspberry Pi:
+#
 # - Monitoring events
 # - Controling a GPIO pin
 # - Monitoring temperature with the DS18B20 sensor
-# 
-# For complete instructions on how to run this example, refer to the [How To](https://cloud4rpi.github.io/docs/howto/) article.
+#
+# For complete instructions on how to run this example, refer
+# to the [How To](https://cloud4rpi.github.io/docs/howto/) article.
 #
 # The DS18B20 sensor should be connected as follows:
 #
