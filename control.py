@@ -94,7 +94,6 @@ def main():
             'type': 'string',
             'bind': listen_for_events
         }
-
     }
 
     diagnostics = {
