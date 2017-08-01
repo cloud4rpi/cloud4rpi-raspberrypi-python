@@ -86,12 +86,10 @@ def main():
             'value': False,
             'bind': led_control
         },
-
         'CPU Temp': {
             'type': 'numeric',
             'bind': rpi.cpu_temp
         },
-
         'STATUS': {
             'type': 'string',
             'bind': listen_for_events
