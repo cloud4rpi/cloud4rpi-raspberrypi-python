@@ -54,11 +54,11 @@ def main():
     variables = {
         'Room Temp': {
             'type': 'numeric',
-            'bind': ds_sensors[0]
+            'bind': ds_sensors[0] if len(ds_sensors) else None
         },
         # 'Outside Temp': {
         #     'type': 'numeric',
-        #     'bind': ds_sensors[1]
+        #     'bind': ds_sensors[1] if len(ds_sensors) > 1 else None
         # },
         'LED On': {
             'type': 'bool',
