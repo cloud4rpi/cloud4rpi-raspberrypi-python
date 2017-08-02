@@ -1,7 +1,7 @@
 Cloud4RPi Examples for [Raspberry Pi](https://www.raspberrypi.org/products/)
 ============================================================================
 
-[![Build Status](https://travis-ci.org/cloud4rpi/raspberrypi-examples.svg?branch=master)](https://travis-ci.org/cloud4rpi/raspberrypi-examples)
+[![Build Status](https://travis-ci.org/cloud4rpi/cloud4rpi-raspberrypi-python.svg?branch=master)](https://travis-ci.org/cloud4rpi/cloud4rpi-raspberrypi-python)
 
 * [Input/Output Control](control.py)
 
