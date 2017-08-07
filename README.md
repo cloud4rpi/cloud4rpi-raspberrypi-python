@@ -11,7 +11,7 @@ Cloud4RPi Examples for [Raspberry Pi](https://www.raspberrypi.org/products/)
     sudo apt install python python-pip git -y
     sudo pip install --upgrade setuptools
     ```
-2. Install the Cloud4RPi client Library:
+2. Install the Cloud4RPi client library:
     ```sh
     sudo pip install cloud4rpi
     ```
