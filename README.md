@@ -38,7 +38,7 @@ Cloud4RPi Examples for [Raspberry Pi](https://www.raspberrypi.org/products/)
 
 You can use this control panel to monitor variables and control a logical state on a hardware pin.
 
-![](https://github.com/cloud4rpi/docs/blob/master/docs/panel.png)
+![](https://github.com/cloud4rpi/docs/raw/master/example-img/panel.png)
 
 ## See Also
 
