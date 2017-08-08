@@ -20,7 +20,7 @@ Cloud4RPi Examples for [Raspberry Pi](https://www.raspberrypi.org/products/)
     git clone https://github.com/cloud4rpi/cloud4rpi-raspberrypi-python.git && cd cloud4rpi-raspberrypi-python
     ```
 4. [Log into your Cloud4RPi account](https://cloud4rpi.io/auth) or [create a new one](https://cloud4rpi.io/auth/signup).
-5. Copy the **Device Token** of [your device](https://cloud4rpi.io/devices). If you have no devices yet, create one on the [Devices](https://cloud4rpi.io/devices) page and copy its **Device Token**.
+5. Copy [your device](https://cloud4rpi.io/devices)'s **Device Token**. If you have no devices, create one on the [Devices](https://cloud4rpi.io/devices) page and copy its **Device Token**.
 6. Replace the `__YOUR_DEVICE_TOKEN__` string in the [control.py](https://github.com/cloud4rpi/cloud4rpi-raspberrypi-python/blob/master/control.py) file with your device token using any text editor (**nano**, **vim**, **sed** or other):
     ```sh
     sed -i 's/__YOUR_DEVICE_TOKEN__/replace-this-text-with-your-real-device-token/' control.py
@@ -29,7 +29,7 @@ Cloud4RPi Examples for [Raspberry Pi](https://www.raspberrypi.org/products/)
     ```sh
     sudo python control.py
     ```
-8. Notice that the [device](https://cloud4rpi.io/devices) went online and starts sending data.
+8. Notice that the [device](https://cloud4rpi.io/devices) went online and started sending data.
 9. Go to the [Control Panels](https://cloud4rpi.io/control-panels/) page and add a new control panel.
 10. Add a new **Gauge** widget and bind it to the `CPU Temp` variable.
 10. Add a new **Switch** widget and bind it to the `LED On` variable.
