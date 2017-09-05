@@ -34,7 +34,7 @@ Cloud4RPi Examples for [Raspberry Pi](https://www.raspberrypi.org/products/)
 10. Add a new **Gauge** widget and bind it to the `CPU Temp` variable.
 10. Add a new **Switch** widget and bind it to the `LED On` variable.
 11. Add a new **Text** widget and bind it to the `STATUS` variable. Configure different colors for **"IDLE"**, **"RING"** and **"BOOM!"** strings.
-12. If you have [DS18B20 sensor connected](https://cloud4rpi.github.io/docs/howto/#connect-ds18b20-temperature-sensor) to your Raspberry Pi, add a new **Chart** widget and bind it to the `Room Temp` variable.
+12. If you have [DS18B20 sensor connected](http://docs.cloud4rpi.io/howto/rpi/#connect-ds18b20-temperature-sensor) to your Raspberry Pi, add a new **Chart** widget and bind it to the `Room Temp` variable.
 
 You can use this control panel to monitor variables and control a logical state on a hardware pin.
 
