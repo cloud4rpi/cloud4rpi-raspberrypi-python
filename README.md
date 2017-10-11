@@ -44,5 +44,6 @@ You can use this control panel to monitor variables and control a logical state 
 
 * [Examples for Next Thing Co. C.H.I.P.](https://github.com/cloud4rpi/cloud4rpi-chip-python)
 * [Examples for Onion Omega2](https://github.com/cloud4rpi/cloud4rpi-omega2-python)
+* [Examples for ESP8266](https://github.com/cloud4rpi/cloud4rpi-esp8266-micropython)
 * [Client Library](https://github.com/cloud4rpi/cloud4rpi)
 * [Documentation Repository](https://github.com/cloud4rpi/docs)
