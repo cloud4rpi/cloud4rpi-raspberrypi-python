@@ -1,4 +1,4 @@
 cloud4rpi
-pep8
+pycodestyle
 pylint
 pyfakefs
