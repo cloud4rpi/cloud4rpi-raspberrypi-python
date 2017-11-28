@@ -21,8 +21,6 @@
 #          └──────────> 5V
 #  DS18B20 (bottom view)
 
-from os import uname
-from socket import gethostname
 import sys
 import time
 import random
@@ -96,12 +94,7 @@ def main():
         }
     }
 
-    diagnostics = {
-        'CPU Temp': rpi.cpu_temp,
-        'IP Address': rpi.ip_address,
-        'Host': gethostname(),
-        'Operating System': " ".join(uname())
-    }
+    diagnostics = rpi.diagnostics
 
     device = cloud4rpi.connect(DEVICE_TOKEN)
     device.declare(variables)
