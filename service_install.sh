@@ -1,6 +1,7 @@
 #!/bin/bash
 
 readonly PYTHON_PATH=/usr/bin/python
+readonly SERVICE_NAME=cloud4rpi
 
 quit_on_error() {
     test "0" = $? || {
@@ -9,11 +10,11 @@ quit_on_error() {
 }
 
 put_systemd_script(){
-    local INIT_MODULE_PATH=/lib/systemd/system/$1
+    local INIT_MODULE_PATH=/lib/systemd/system/$SERVICE_NAME.service
     echo "Writing init script to $INIT_MODULE_PATH..."
     cat > "$INIT_MODULE_PATH" <<EOF
 [Unit]
-Description=Cloud4RPi daemon
+Description=Cloud4RPi-enabled user script
 After=network.target
 
 [Service]
@@ -31,18 +32,18 @@ EOF
 }
 
 put_systemv_script(){
-    local INIT_MODULE_PATH=/etc/init.d/$1
+    local INIT_MODULE_PATH=/etc/init.d/$SERVICE_NAME
     echo "Writing init script to $INIT_MODULE_PATH..."
     cat > "$INIT_MODULE_PATH" <<EOF
 #!/bin/sh
 
 ### BEGIN INIT INFO
-# Provides:          cloud4rpi
+# Provides:          $SERVICE_NAME
 # Required-Start:    \$local_fs \$network \$named \$time \$syslog
 # Required-Stop:     \$local_fs \$network \$named \$time \$syslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: Cloud4RPi demon
+# Short-Description: Cloud4RPi daemon
 # Description:       Cloud4RPi-enabled user script
 #                    (https://cloud4rpi.io/)
 ### END INIT INFO
@@ -50,8 +51,8 @@ put_systemv_script(){
 SCRIPT=$SCRIPT_PATH
 RUNAS=root
 
-PIDFILE=/var/run/cloud4rpi.pid
-LOGFILE=/var/log/cloud4rpi.log
+PIDFILE=/var/run/$SERVICE_NAME.pid
+LOGFILE=/var/log/$SERVICE_NAME.log
 
 start() {
   if is_running; then
@@ -95,12 +96,12 @@ stop() {
 }
 
 uninstall() {
-  printf "Do you really want to uninstall Cloud4RPi service? That cannot be undone. [yes|no] "
+  printf "Do you really want to uninstall this Cloud4RPi service? That cannot be undone. [yes|no] "
   read -r REPLY
   if [ "\$REPLY" = "yes" ]; then
     stop
     echo "Notice: log file was not removed: '\$LOGFILE'" >&2
-    update-rc.d -f cloud4rpi remove
+    update-rc.d -f $SERVICE_NAME remove
     rm -fv "\$0"
   fi
 }
@@ -134,9 +135,7 @@ EOF
 }
 
 install_sysv() {
-    local SERVICE_NAME=cloud4rpi
-
-    put_systemv_script $SERVICE_NAME
+    put_systemv_script
 
     echo "Installing init script links..."
     update-rc.d "$SERVICE_NAME" defaults
@@ -148,18 +147,16 @@ install_sysv() {
 }
 
 install_sysd() {
-    local SERVICE_NAME=cloud4rpi.service
-
-    put_systemd_script $SERVICE_NAME
+    put_systemd_script
 
     echo "Configuring systemd..."
     systemctl daemon-reload
-    systemctl enable "$SERVICE_NAME"
+    systemctl enable "$SERVICE_NAME.service"
     quit_on_error
 
     echo "All done!"
     echo "Usage example:"
-    echo -e "  $ sudo systemctl start|stop|status \e[0m$SERVICE_NAME\e[1m"
+    echo -e "  $ sudo systemctl start|stop|status \e[0m$SERVICE_NAME.service\e[1m"
 }
 
 main() {
@@ -178,7 +175,7 @@ main() {
         "init") install_sysv ;;
         "systemd") install_sysd ;;
         *)
-            echo "Unfortunately we can\'t automate service installation on your system."
+            echo "Unfortunately we can\'t automate service installation on your system. Please contact us for help: https://cloud4rpi.answerdesk.io/"
             exit 1
     esac
     exit 0
