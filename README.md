@@ -3,6 +3,13 @@ Cloud4RPi Examples for [Raspberry Pi](https://www.raspberrypi.org/products/)
 
 [![Build Status](https://travis-ci.org/cloud4rpi/cloud4rpi-raspberrypi-python.svg?branch=master)](https://travis-ci.org/cloud4rpi/cloud4rpi-raspberrypi-python)
 
+This example demonstrates different scenarios of using Cloud4RPi service on Raspberry Pi:
+ - Monitoring events
+ - Controling a GPIO pin
+ - Monitoring temperature with the DS18B20 sensor
+
+For complete instructions on how to run this example, refer to the [How To](https://cloud4rpi.github.io/docs/howto/rpi) article.
+
 ## Running the Sample Code
 
 1. Update your system and make sure you have the latest versions of all required software:

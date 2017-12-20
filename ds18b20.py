@@ -1,5 +1,14 @@
 # -*- coding: utf-8 -*-
 
+# The DS18B20 sensor should be connected as follows:
+#
+#  / GND |────────────> GND
+# | DATA |─────────┬──> GPIO4
+#  \ VCC |─┬─[4k7]─┘
+#          └──────────> 5V
+#  DS18B20 (bottom view)
+#
+
 import os
 import re
 import subprocess

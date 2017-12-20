@@ -1,35 +1,12 @@
 # -*- coding: utf-8 -*-
-#
-# Cloud4RPi Example for Raspberry Pi
-# ==================================
-#
-# This example demonstrates different scenarios of using Cloud4RPi service
-# on Raspberry Pi:
-#
-# - Monitoring events
-# - Controling a GPIO pin
-# - Monitoring temperature with the DS18B20 sensor
-#
-# For complete instructions on how to run this example, refer
-# to the [How To](https://cloud4rpi.github.io/docs/howto/) article.
-#
-# The DS18B20 sensor should be connected as follows:
-#
-#  / GND |────────────> GND
-# | DATA |─────────┬──> GPIO4
-#  \ VCC |─┬─[4k7]─┘
-#          └──────────> 5V
-#  DS18B20 (bottom view)
 
-from os import uname
-from socket import gethostname
 import sys
 import time
 import random
-import RPi.GPIO as GPIO  # pylint: disable=F0401
 import cloud4rpi
 import ds18b20
 import rpi
+import RPi.GPIO as GPIO  # pylint: disable=F0401
 
 # Put your device token here. To get the token,
 # sign up at https://cloud4rpi.io and create a device.
@@ -99,8 +76,8 @@ def main():
     diagnostics = {
         'CPU Temp': rpi.cpu_temp,
         'IP Address': rpi.ip_address,
-        'Host': gethostname(),
-        'Operating System': " ".join(uname())
+        'Host': rpi.host_name,
+        'Operating System': rpi.os_name
     }
 
     device = cloud4rpi.connect(DEVICE_TOKEN)
