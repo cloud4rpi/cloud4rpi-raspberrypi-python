@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from time import sleep
 import sys
-import time
 import random
 import cloud4rpi
 import ds18b20
@@ -87,7 +87,7 @@ def main():
     device.publish_config()
 
     # Adds a 1 second delay to ensure device variables are created
-    time.sleep(1)
+    sleep(1)
 
     try:
         data_timer = 0
@@ -101,7 +101,7 @@ def main():
                 device.publish_diag()
                 diag_timer = DIAG_SENDING_INTERVAL
 
-            time.sleep(POLL_INTERVAL)
+            sleep(POLL_INTERVAL)
             diag_timer -= POLL_INTERVAL
             data_timer -= POLL_INTERVAL
 

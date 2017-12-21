@@ -8,7 +8,7 @@ This example demonstrates different scenarios of using Cloud4RPi service on Rasp
  - Controling a GPIO pin
  - Monitoring temperature with the DS18B20 sensor
 
-For complete instructions on how to run this example, refer to the [How To](https://cloud4rpi.github.io/docs/howto/rpi) article.
+For detailed instructions on how to run this example, refer to the [How To](https://cloud4rpi.github.io/docs/howto/rpi) article.
 
 ## Running the Sample Code
 
