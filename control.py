@@ -18,19 +18,19 @@ DATA_SENDING_INTERVAL = 30  # secs
 DIAG_SENDING_INTERVAL = 60  # secs
 POLL_INTERVAL = 0.5  # 500 ms
 
-# configure GPIO library
+# Configure GPIO library
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(LED_PIN, GPIO.OUT)
 
 
-# handler for the button or switch variable
+# Handler for the button or switch variable
 def led_control(value=None):
     GPIO.output(LED_PIN, value)
     return GPIO.input(LED_PIN)
 
 
 def listen_for_events():
-    # write your own logic here
+    # Write your own logic here
     result = random.randint(1, 5)
     if result == 1:
         return 'RING'
@@ -42,10 +42,10 @@ def listen_for_events():
 
 
 def main():
-    # load w1 modules
+    # Load w1 modules
     ds18b20.init_w1()
 
-    # detect ds18b20 temperature sensors
+    # Detect ds18b20 temperature sensors
     ds_sensors = ds18b20.DS18b20.find_all()
 
     # Put variable declarations here
@@ -79,8 +79,16 @@ def main():
         'Host': rpi.host_name,
         'Operating System': rpi.os_name
     }
-
     device = cloud4rpi.connect(DEVICE_TOKEN)
+
+    # Use the following 'device' declaration
+    # to enable the MQTT traffic encryption (TLS).
+    #
+    # tls = {
+    #     'ca_certs': '/etc/ssl/certs/ca-certificates.crt'
+    # }
+    # device = cloud4rpi.connect(DEVICE_TOKEN, tls_config=tls)
+
     device.declare(variables)
     device.declare_diag(diagnostics)
 
