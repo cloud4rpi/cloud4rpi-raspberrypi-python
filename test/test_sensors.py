@@ -36,7 +36,7 @@ class TestDs18b20Sensors(ffut.TestCase):
         self.setUpSensor('28-000802824e58', sensor_28)
 
     def setUpSensor(self, address, content):
-        self.fs.CreateFile(
+        self.fs.create_file(
             '/sys/bus/w1/devices/{0}/w1_slave'.format(address),
             contents=content
         )
