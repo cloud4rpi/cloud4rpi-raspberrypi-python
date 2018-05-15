@@ -49,6 +49,7 @@ def main():
     ds_sensors = ds18b20.DS18b20.find_all()
 
     # Put variable declarations here
+    # Available types: 'bool', 'numeric', 'string'
     variables = {
         'Room Temp': {
             'type': 'numeric',
