@@ -90,17 +90,18 @@ def main():
     # }
     # device = cloud4rpi.connect(DEVICE_TOKEN, tls_config=tls)
 
-    device.declare(variables)
-    device.declare_diag(diagnostics)
-
-    device.publish_config()
-
-    # Adds a 1 second delay to ensure device variables are created
-    sleep(1)
-
     try:
+        device.declare(variables)
+        device.declare_diag(diagnostics)
+
+        device.publish_config()
+
+        # Adds a 1 second delay to ensure device variables are created
+        sleep(1)
+
         data_timer = 0
         diag_timer = 0
+
         while True:
             if data_timer <= 0:
                 device.publish_data()
@@ -119,7 +120,7 @@ def main():
 
     except Exception as e:
         error = cloud4rpi.get_error_message(e)
-        cloud4rpi.log.error("ERROR! %s %s", error, sys.exc_info()[0])
+        cloud4rpi.log.exception("ERROR! %s %s", error, sys.exc_info()[0])
 
     finally:
         sys.exit(0)
