@@ -14,7 +14,10 @@ DEVICE_TOKEN = '__YOUR_DEVICE_TOKEN__'
 
 # Constants
 LED_PIN = 12
-DATA_SENDING_INTERVAL = 300  # The interval in seconds. Decrease this value for testing purposes.
+
+# Decrease this value for testing purposes.
+DATA_SENDING_INTERVAL = 300  # secs
+
 DIAG_SENDING_INTERVAL = 60  # secs
 POLL_INTERVAL = 0.5  # 500 ms
 
