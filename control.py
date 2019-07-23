@@ -14,7 +14,10 @@ DEVICE_TOKEN = '__YOUR_DEVICE_TOKEN__'
 
 # Constants
 LED_PIN = 12
-DATA_SENDING_INTERVAL = 30  # secs
+
+# Decrease this value for testing purposes.
+DATA_SENDING_INTERVAL = 300  # secs
+
 DIAG_SENDING_INTERVAL = 60  # secs
 POLL_INTERVAL = 0.5  # 500 ms
 
@@ -41,6 +44,11 @@ def listen_for_events():
     return 'IDLE'
 
 
+def get_location():
+    # The Eiffel Tower, Paris, France
+    return {'lat': 48.858093, 'lng': 2.294694}
+
+
 def main():
     # Load w1 modules
     ds18b20.init_w1()
@@ -49,7 +57,7 @@ def main():
     ds_sensors = ds18b20.DS18b20.find_all()
 
     # Put variable declarations here
-    # Available types: 'bool', 'numeric', 'string'
+    # Available types: 'bool', 'numeric', 'string', 'location'
     variables = {
         'Room Temp': {
             'type': 'numeric',
@@ -71,6 +79,10 @@ def main():
         'STATUS': {
             'type': 'string',
             'bind': listen_for_events
+        },
+        'Eiffel Tower': {
+            'type': 'location',
+            'bind': get_location
         }
     }
 
