@@ -1,6 +1,6 @@
 #!/bin/bash
 
-readonly PYTHON_PATH=/usr/bin/python
+readonly PYTHON_PATH=/usr/bin/python3
 readonly SERVICE_NAME=cloud4rpi
 
 quit_on_error() {
