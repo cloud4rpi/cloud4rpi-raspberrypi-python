@@ -5,7 +5,7 @@ Cloud4RPi Examples for [Raspberry Pi](https://www.raspberrypi.org/products/)
 
 This example demonstrates different scenarios of using Cloud4RPi service on Raspberry Pi:
  - Monitoring events
- - Controling a GPIO pin
+ - Controlling a GPIO pin
  - Monitoring temperature with the DS18B20 sensor
 
 For detailed instructions on how to run this example, refer to the [How To](https://cloud4rpi.github.io/docs/howto/rpi) article.
@@ -15,12 +15,12 @@ For detailed instructions on how to run this example, refer to the [How To](http
 1. Update your system and make sure you have the latest versions of all required software:
     ```sh
     sudo apt update && sudo apt upgrade -y
-    sudo apt install python python-pip git -y
-    sudo pip install --upgrade setuptools pip
+    sudo apt install python3 python3-pip git -y
+    sudo pip3 install --upgrade setuptools pip
     ```
 2. Install the Cloud4RPi client library:
     ```sh
-    sudo pip install cloud4rpi
+    sudo pip3 install cloud4rpi
     ```
 3. Clone this repository:
     ```sh
@@ -34,7 +34,7 @@ For detailed instructions on how to run this example, refer to the [How To](http
     ```
 7. Run the `control.py` example:
     ```sh
-    sudo python control.py
+    sudo python3 control.py
     ```
 8. Notice that the [device](https://cloud4rpi.io/devices) went online and started sending data.
 9. Go to the [Control Panels](https://cloud4rpi.io/control-panels/) page and add a new control panel.
