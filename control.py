@@ -49,6 +49,10 @@ def get_location():
     return {'lat': 48.858093, 'lng': 2.294694}
 
 
+def sensor_not_connected():
+    return 'Sensor not connected'
+
+
 def main():
     # Load w1 modules
     ds18b20.init_w1()
@@ -60,12 +64,12 @@ def main():
     # Available types: 'bool', 'numeric', 'string', 'location'
     variables = {
         'Room Temp': {
-            'type': 'numeric',
-            'bind': ds_sensors[0] if ds_sensors else None
+            'type': 'numeric' if ds_sensors else 'string',
+            'bind': ds_sensors[0] if ds_sensors else sensor_not_connected
         },
         # 'Outside Temp': {
-        #     'type': 'numeric',
-        #     'bind': ds_sensors[1] if len(ds_sensors) > 1 else None
+        #     'type': 'numeric' if ds_sensors else 'string',
+        #     'bind': ds_sensors[1] if ds_sensors else get_empty_value
         # },
         'LED On': {
             'type': 'bool',
