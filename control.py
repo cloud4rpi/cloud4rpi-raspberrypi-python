@@ -15,11 +15,14 @@ DEVICE_TOKEN = '__YOUR_DEVICE_TOKEN__'
 # Constants
 LED_PIN = 12
 
-# Decrease this value for testing purposes.
-DATA_SENDING_INTERVAL = 300  # secs
-
-DIAG_SENDING_INTERVAL = 60  # secs
+DATA_SENDING_INTERVAL = 60  # secs
+DIAG_SENDING_INTERVAL = 90  # secs
 POLL_INTERVAL = 0.5  # 500 ms
+
+LOCATIONS = [
+    {'lat': 51.500741, 'lng': -0.124626},  # Big Ben, London, United Kingdom
+    {'lat': 40.689323, 'lng': -74.044503}  # Statue of Liberty, New York, USA
+]
 
 # Configure GPIO library
 GPIO.setmode(GPIO.BOARD)
@@ -39,14 +42,13 @@ def listen_for_events():
         return 'RING'
 
     if result == 5:
-        return 'BOOM!'
+        return 'BOOM'
 
     return 'IDLE'
 
 
 def get_location():
-    # The Eiffel Tower, Paris, France
-    return {'lat': 48.858093, 'lng': 2.294694}
+    return random.choice(LOCATIONS)
 
 
 def sensor_not_connected():
@@ -84,7 +86,7 @@ def main():
             'type': 'string',
             'bind': listen_for_events
         },
-        'Eiffel Tower': {
+        'Location': {
             'type': 'location',
             'bind': get_location
         }
@@ -94,7 +96,8 @@ def main():
         'CPU Temp': rpi.cpu_temp,
         'IP Address': rpi.ip_address,
         'Host': rpi.host_name,
-        'Operating System': rpi.os_name
+        'Operating System': rpi.os_name,
+        'Client Version:': cloud4rpi.__version__,
     }
     device = cloud4rpi.connect(DEVICE_TOKEN)
 
