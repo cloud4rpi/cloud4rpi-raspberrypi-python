@@ -6,8 +6,8 @@
 import unittest
 import pyfakefs.fake_filesystem_unittest as ffut
 
-
 from os import sys, path
+
 root = path.abspath(path.join(path.dirname(__file__), path.pardir))
 sys.path.insert(0, path.join(root, 'raspberrypi'))
 
@@ -17,13 +17,15 @@ import rpi
 from os import uname
 from socket import gethostname
 
-sensor_10 = \
-    '2d 00 4d 46 ff ff 08 10 fe : crc=fe YES' '\n' \
+sensor_10 = '\n'.join([
+    '2d 00 4d 46 ff ff 08 10 fe : crc=fe YES',
     '2d 00 4d 46 ff ff 08 10 fe : t=22250'
+])
 
-sensor_28 = \
-    '2d 00 4d 46 ff ff 08 10 fe : crc=fe YES' '\n' \
+sensor_28 = '\n'.join([
+    '2d 00 4d 46 ff ff 08 10 fe : crc=fe YES',
     '2d 00 4d 46 ff ff 08 10 fe : t=28250'
+])
 
 
 class TestDs18b20Sensors(ffut.TestCase):
