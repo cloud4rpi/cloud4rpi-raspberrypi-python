@@ -15,8 +15,9 @@ DEVICE_TOKEN = '__YOUR_DEVICE_TOKEN__'
 # Constants
 LED_PIN = 12
 
+# Change these values depending on your requirements.
 DATA_SENDING_INTERVAL = 60  # secs
-DIAG_SENDING_INTERVAL = 90  # secs
+DIAG_SENDING_INTERVAL = 650  # secs
 POLL_INTERVAL = 0.5  # 500 ms
 
 LOCATIONS = [
